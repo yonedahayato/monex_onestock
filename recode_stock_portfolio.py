@@ -27,7 +27,7 @@ class management_portfolio:
         elif status == "sell":
             print("recode about sell")
             print(self.recode_df)
-            sell_code_status = self.recode_df.ix[(self.recode_df.ix[:, "code"]==str(code)) & (sself.recode_df.ix[:, "status"]=="buy"), "status"]
+            sell_code_status = self.recode_df.ix[(self.recode_df.ix[:, "code"]==str(code)) & (self.recode_df.ix[:, "status"]=="buy"), "status"]
             sell_code_index = sell_code_status.index[0]
             print(sell_code_status)
 
@@ -55,8 +55,11 @@ class management_portfolio:
     def ToCsv(self):
         print(self.recode_df)
         self.recode_df.to_csv(self.file_name, index=False, header=True)
+        self.isfile = True
 
 if __name__ == "__main__":
     mf = management_portfolio()
+    mf.recode_stock_portfolio("buy", "1332", 1)
+    mf.recode_stock_portfolio("sell", "1332", 1)
     mf.recode_stock_portfolio("buy", "9976", 1)
     mf.recode_stock_portfolio("sell", "9976", 1)
