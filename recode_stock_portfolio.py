@@ -53,9 +53,19 @@ class management_portfolio:
         self.ToCsv()
 
     def ToCsv(self):
-        print(self.recode_df)
         self.recode_df.to_csv(self.file_name, index=False, header=True)
         self.isfile = True
+
+    def sell_possible_code(self):
+        sell_possible_list = self.recode_df.ix[self.recode_df.ix[:, "status"]=="buy", :]
+        if len(sell_possible_list) == 1:
+            sell_possible_code = sell_possible_list.ix[:, "code"]
+            sell_possible_code = sell_possible_code.values[0]
+            return sell_possible_code
+        elif len(sell_possible_list) == 0:
+            raise Exception("sell possible list is empty")
+        else:
+            raise Exception("sell possible code is multiple")
 
 if __name__ == "__main__":
     mf = management_portfolio()
