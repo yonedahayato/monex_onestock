@@ -29,7 +29,6 @@ class management_portfolio:
             print(self.recode_df)
             sell_code_status = self.recode_df.ix[(self.recode_df.ix[:, "code"]==str(code)) & (self.recode_df.ix[:, "status"]=="buy"), "status"]
             sell_code_index = sell_code_status.index[0]
-            print(sell_code_status)
 
             if sell_code_status.empty:
                 raise Exception("you can`t sell this code. sell_code_status is empty")
@@ -37,7 +36,6 @@ class management_portfolio:
                 raise Exception("you can`t sell this code. sell_code_status`s len is not 1")
             else:
                 sell_code_status = sell_code_status.values[0]
-                print(sell_code_status)
 
             print(sell_code_status)
 
