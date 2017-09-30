@@ -3,8 +3,13 @@ import datetime
 from get_stock_data import get_data_AfternoonSession
 import pandas as pd
 
+from pytz import timezone
+utc_now = datetime.datetime.now(timezone('UTC'))
+jst_now = utc_now.astimezone(timezone('Asia/Tokyo'))
+
 def calculate_profit_rate(rate="profit_rate"):
-    today = datetime.date.today()
+    #today = datetime.date.today()
+    today = jst_now.date()
     while True:
         try:
             data_1 = get_data_AfternoonSession(str(today))
