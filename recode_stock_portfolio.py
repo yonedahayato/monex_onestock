@@ -3,8 +3,12 @@ import os.path as path
 from pathlib import Path
 
 class management_portfolio:
-    def __init__(self):
-        self.file_name = "./recode_portfolio.csv"
+    def __init__(self, recode_save_path=None):
+        if recode_save_path == None:
+            self.file_name = "./recode_portfolio.csv"
+        else:
+            self.file_name = recode_save_path
+
         if not path.exists(self.file_name):
             self.isfile = False
         else:
