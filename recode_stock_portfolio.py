@@ -17,11 +17,11 @@ class management_portfolio:
             self.recode_df[["code"]] = self.recode_df[["code"]].astype(str)
             self.recode_df[["status"]] = self.recode_df[["status"]].astype(str)
 
-    def recode_stock_portfolio(self, status, code, number, price="NaN"):
+    def recode_stock_portfolio(self, status, code, number, price="NaN", profit="NaN", profit_rate="NaN"):
         if status == "buy":
             print("recode about buy")
-            recode_df = pd.DataFrame({"code": [str(code)], "status": [status], "number": [number], "price": [price]})
-            recode_df = recode_df[["code", "status", "number", "price"]]
+            recode_df = pd.DataFrame({"code": [str(code)], "status": [status], "number": [number], "price": [price], "profit": [profit], "profit_rate": [profit_rate]})
+            recode_df = recode_df[["code", "status", "number", "price", "profit", "profit_rate"]]
 
             if self.isfile:
                 self.recode_df = pd.concat([self.recode_df, recode_df])
