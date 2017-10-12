@@ -29,6 +29,9 @@ class management_portfolio:
                 self.recode_df = recode_df
 
         elif status == "sell":
+            if not self.isfile:
+                raise("not error. but there are not recode save file")
+
             print("recode about sell")
             print(self.recode_df)
             sell_code_status = self.recode_df.ix[(self.recode_df.ix[:, "code"]==str(code)) & (self.recode_df.ix[:, "status"]=="buy"), "status"]
