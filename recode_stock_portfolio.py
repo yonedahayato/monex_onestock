@@ -62,6 +62,9 @@ class management_portfolio:
         self.isfile = True
 
     def sell_possible_code(self):
+        if not self.isfile:
+            raise("not error. but there are not recode save file")
+
         sell_possible_list = self.recode_df.ix[self.recode_df.ix[:, "status"]=="buy", :]
         if len(sell_possible_list) == 1:
             sell_possible_code = sell_possible_list.ix[:, "code"]
