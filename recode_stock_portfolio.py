@@ -17,6 +17,8 @@ class management_portfolio:
             self.recode_df[["code"]] = self.recode_df[["code"]].astype(str)
             self.recode_df[["status"]] = self.recode_df[["status"]].astype(str)
 
+        self.sell_possible_list = None
+
     def recode_stock_portfolio(self, status, code, number, price="NaN", profit="NaN", profit_rate="NaN"):
         if status == "buy":
             print("recode about buy")
@@ -73,6 +75,7 @@ class management_portfolio:
         elif len(sell_possible_list) == 0:
             raise Exception("sell possible list is empty")
         else:
+            print(sell_possible_list)
             raise Exception("sell possible code is multiple")
 
 if __name__ == "__main__":
