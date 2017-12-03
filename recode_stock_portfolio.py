@@ -76,6 +76,7 @@ class management_portfolio:
             raise Exception("sell possible list is empty")
         else:
             print(sell_possible_list)
+            sell_code = input("sell code: ")
             raise Exception("sell possible code is multiple")
 
 if __name__ == "__main__":
