@@ -63,7 +63,7 @@ class management_portfolio:
         self.recode_df.to_csv(self.file_name, index=False, header=True)
         self.isfile = True
 
-    def sell_possible_code(self):
+    def sell_possible_code(self, select_sell_code=True):
         if not self.isfile:
             raise("not error. but there are not recode save file")
 
@@ -76,8 +76,11 @@ class management_portfolio:
             raise Exception("sell possible list is empty")
         else:
             print(sell_possible_list)
-            sell_code = input("sell code: ")
-            raise Exception("sell possible code is multiple")
+            if select_sell_code:
+                sell_code = input("sell code: ")
+                return sell_code
+            else:
+                raise Exception("sell possible code is multiple")
 
 if __name__ == "__main__":
     mf = management_portfolio()
